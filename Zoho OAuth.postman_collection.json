@@ -1,0 +1,203 @@
+{
+	"info": {
+		"_postman_id": "8fcb0827-6721-490e-9486-596fc7e82cf3",
+		"name": "Zoho OAuth",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "29294589"
+	},
+	"item": [
+		{
+			"name": "auth token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://accounts.zoho.in/oauth/v2/token?grant_type=authorization_code&code=1000.21e7cf3b1ed04654282479f991201eee.9a4c6695d6e9668de15aac1edfd3b7dd&client_id=1000.RGSJKGCRU2CP2OWZRWS9SP276EEAGW&redirect_uri=https://www.google.com/&client_secret=fbc28034f7e0c137c90c099851cb3a88b055f24615",
+					"protocol": "https",
+					"host": [
+						"accounts",
+						"zoho",
+						"in"
+					],
+					"path": [
+						"oauth",
+						"v2",
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "authorization_code"
+						},
+						{
+							"key": "code",
+							"value": "1000.21e7cf3b1ed04654282479f991201eee.9a4c6695d6e9668de15aac1edfd3b7dd"
+						},
+						{
+							"key": "client_id",
+							"value": "1000.RGSJKGCRU2CP2OWZRWS9SP276EEAGW"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "https://www.google.com/"
+						},
+						{
+							"key": "client_secret",
+							"value": "fbc28034f7e0c137c90c099851cb3a88b055f24615"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "refresh token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://accounts.zoho.in/oauth/v2/token?refresh_token=1000.ce847ded93391f5c727b56dba509b99c.c27cb1c958cd6503f02985d41928ffe2&client_id=1000.RGSJKGCRU2CP2OWZRWS9SP276EEAGW&client_secret=fbc28034f7e0c137c90c099851cb3a88b055f24615&grant_type=refresh_token",
+					"protocol": "https",
+					"host": [
+						"accounts",
+						"zoho",
+						"in"
+					],
+					"path": [
+						"oauth",
+						"v2",
+						"token"
+					],
+					"query": [
+						{
+							"key": "refresh_token",
+							"value": "1000.ce847ded93391f5c727b56dba509b99c.c27cb1c958cd6503f02985d41928ffe2"
+						},
+						{
+							"key": "client_id",
+							"value": "1000.RGSJKGCRU2CP2OWZRWS9SP276EEAGW"
+						},
+						{
+							"key": "client_secret",
+							"value": "fbc28034f7e0c137c90c099851cb3a88b055f24615"
+						},
+						{
+							"key": "grant_type",
+							"value": "refresh_token"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create a webinar",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json;charset=UTF-8"
+					},
+					{
+						"key": "Authorization",
+						"value": "Zoho-oauthtoken 1000.a20d176b8da85396203f3dcc7047a2c3.15c46acb7f30234a2fda1b86e9bed563"
+					},
+					{
+						"key": "",
+						"value": "ba4604e8e433g9c892e360d53463oec5",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"session\": {\r\n        \"topic\": \"Monthly development Webinar\",\r\n        \"agenda\": \"Description of webinar.\",\r\n        \"presenter\": \"60023578322\",\r\n        \"startTime\": \"Aug 30, 2024 05:00 PM\",\r\n        \"duration\": 3600000,\r\n        \"timezone\": \"Asia/Calcutta\",\r\n        \"participants\": [\r\n            {\r\n                \"email\": \"dummy@email.com\"\r\n            }\r\n        ]\r\n    }\r\n}"
+				},
+				"url": "https://meeting.zoho.in/api/v2/60023578322/webinar.json"
+			},
+			"response": []
+		},
+		{
+			"name": "list of webinar",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Zoho-oauthtoken 1000.a20d176b8da85396203f3dcc7047a2c3.15c46acb7f30234a2fda1b86e9bed563"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json;charset=UTF-8",
+						"type": "text"
+					}
+				],
+				"url": "https://meeting.zoho.in/api/v2/60023578322/webinar.json"
+			},
+			"response": []
+		},
+		{
+			"name": "edit webinar",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json;charset=UTF-8"
+					},
+					{
+						"key": "Authorization",
+						"value": "Zoho-oauthtoken 1000.a20d176b8da85396203f3dcc7047a2c3.15c46acb7f30234a2fda1b86e9bed563"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"session\": {\r\n        \"topic\": \"Monthly Marketing Webinar\",\r\n        \"agenda\": \"New Era and New Tech\",\r\n        \"presenter\": \"60023578322\",\r\n        \"startTime\": \"Aug 30, 2024 05:00 PM\",\r\n        \"duration\": 3600000,\r\n        \"timezone\": \"Asia/Calcutta\",\r\n        \"participants\": [\r\n            {\r\n                \"email\": \"dummy@email.com\"\r\n            }\r\n        ]\r\n    }\r\n}"
+				},
+				"url": "https://meeting.zoho.in/api/v2/60023578322/webinar/1315930702.json"
+			},
+			"response": []
+		},
+		{
+			"name": "get a webinar",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json;charset=UTF-8",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Zoho-oauthtoken 1000.a20d176b8da85396203f3dcc7047a2c3.15c46acb7f30234a2fda1b86e9bed563",
+						"type": "text"
+					}
+				],
+				"url": "https://meeting.zoho.in/api/v2/60023578322/webinar/1315930702.json"
+			},
+			"response": []
+		},
+		{
+			"name": "delete a webinar",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json;charset=UTF-8",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Zoho-oauthtoken 1000.a20d176b8da85396203f3dcc7047a2c3.15c46acb7f30234a2fda1b86e9bed563",
+						"type": "text"
+					}
+				],
+				"url": "https://meeting.zoho.in/api/v2/60023578322/webinar/1315930702.json"
+			},
+			"response": []
+		}
+	]
+}
